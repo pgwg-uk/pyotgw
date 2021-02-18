@@ -256,8 +256,34 @@ DATA_VH_SLAVE_DIAG_INDICATE = "vh_slave_diag_indicate"
 # MSG_RELVENTPOS
 DATA_VH_CONTROL_SETPOINT = "vh_control_setpoint"
 
+# MSG_VHFAULT
+DATA_VH_FAULT_FLAGS = "vh_fault_flags"
+DATA_VH_FAULT_CODE = "vh_fault_code"
+
+# MSG_VHOEMDIAG
+DATA_VH_OEMDIAG = "vh_oemdiag_code"
+
+# MSG_SLAVEVH
+DATA_VH_SLAVE_SYSTEM_TYPE = "vh_slave_system_type"
+DATA_VH_SLAVE_CONFIG_BYPASS = "vh_slave_config_bypass"
+DATA_VH_SLAVE_CONFIG_SPDCONTROL = "vh_slave_config_spdcontrol"
+DATA_VH_SLAVE_MEMBERID = "vh_slave_memberid"
+
+# MSG_VHVERSION
+DATA_VH_SLAVE_OTVERSION = "vh_slave_ot_version"
+
+# MSG_VHPRODUCT
+DATA_VH_SLAVE_PRODUCT_TYPE = "vh_slave_product_type"
+DATA_VH_SLAVE_PRODUCT_VERSION = "vh_slave_product_version"
+
 # MSG_RELVENT
 DATA_VH_RELATIVE_VENT = "vh_relative_vent"
+
+# MSG_RHEXHAUST
+DATA_EXHAUST_RH = "exhaust_rh"
+
+# MSG_CO2EXHAUST
+DATA_EXHAUST_CO2 = "exhaust_co2"
 
 # MSG_ROVRD
 DATA_ROVRD_MAN_PRIO = "rovrd_man_prio"

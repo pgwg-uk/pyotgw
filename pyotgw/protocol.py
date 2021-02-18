@@ -441,9 +441,35 @@ class protocol(asyncio.Protocol):
                 statuspart[v.DATA_VH_SLAVE_BYPASS_AUTO_STATUS] = vhstatus[3]
                 statuspart[v.DATA_VH_SLAVE_FREE_VENT_STATUS] = vhstatus[4]
                 statuspart[v.DATA_VH_SLAVE_DIAG_INDICATE] = vhstatus[6]
+            elif msgid == v.MSG_VHFAULT:
+                # Slave reports OEM fault flags/code
+                statuspart[v.DATA_VH_FAULT_FLAGS] = self._get_u8(msb)
+                statuspart[v.DATA_VH_FAULT_CODE] = self._get_u8(lsb)
+            elif msgid == v.MSG_VHOEMDIAG:
+                statuspart[v.DATA_VH_OEMDIAG] = self._get_u16(msb, lsb)
+            elif msgid == v.MSG_SLAVEVH:
+                # Slave reports VH config
+                vh_config = self._get_flag8(msb)
+                statuspart[v.DATA_VH_SLAVE_SYSTEM_TYPE] = vh_config[0]
+                statuspart[v.DATA_VH_SLAVE_CONFIG_BYPASS] = vh_config[1]
+                statuspart[v.DATA_VH_SLAVE_CONFIG_SPDCONTROL] = vh_config[2]
+                statuspart[v.DATA_VH_SLAVE_MEMBERID] = self._get_u8(lsb)
+            elif msgid == v.MSG_VHVERSION:
+                # Slave reports V/H version
+                statuspart[v.DATA_VH_SLAVE_OTVERSION] = self._get_f8_8(msb, lsb)
+            elif msgid == v.MSG_VHPRODUCT:
+                # Slave reports product type/version
+                statuspart[v.DATA_VH_SLAVE_PRODUCT_TYPE] = self._get_u8(msb)
+                statuspart[v.DATA_VH_SLAVE_PRODUCT_VERSION] = self._get_u8(lsb)
             elif msgid == v.MSG_RELVENT:
                 # Slave reports or acks ventilation setpoint.
                 statuspart[v.DATA_VH_RELATIVE_VENT] = self._get_u8(msb)
+            elif msgid == v.MSG_RHEXHAUST:
+                # Slave reports exhaust humidity
+                statuspart[v.DATA_EXHAUST_RH] = self._get_u8(msb)
+            elif msgid == v.MSG_CO2EXHAUST:
+                # Slave reports exhaust CO2 level
+                statuspart[v.DATA_EXHAUST_CO2] = self._get_f8_8(msb, lsb)
             elif msgid == v.MSG_ROVRD:
                 # OTGW (or downstream device) reports remote override
                 # behaviour
