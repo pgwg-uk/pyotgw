@@ -470,6 +470,30 @@ class protocol(asyncio.Protocol):
             elif msgid == v.MSG_CO2EXHAUST:
                 # Slave reports exhaust CO2 level
                 statuspart[v.DATA_EXHAUST_CO2] = self._get_f8_8(msb, lsb)
+            elif msgid == v.MSG_TSPLYIN:
+                # Slave reports supply inlet temperature
+                statuspart[v.DATA_SPLY_IN_TEMP] = self._get_f8_8(msb, lsb)
+            elif msgid == v.MSG_TSPLYOUT:
+                # Slave reports supply outlet temperature
+                statuspart[v.DATA_SPLY_OUT_TEMP] = self._get_f8_8(msb, lsb)
+            elif msgid == v.MSG_TEXHIN:
+                # Slave reports exhaust inlet temperature
+                statuspart[v.DATA_EXHAUST_IN_TEMP] = self._get_f8_8(msb, lsb)
+            elif msgid == v.MSG_TEXHOUT:
+                # Slave reports exhaust outlet temperature
+                statuspart[v.DATA_EXHAUST_OUT_TEMP] = self._get_f8_8(msb, lsb)
+            elif msgid == v.MSG_EXFANSPD:
+                # Slave reports exhaust fan speed
+                statuspart[v.DATA_EXHAUST_FAN_SPD] = self._get_u16(msb, lsb)
+            elif msgid == v.MSG_SPLYFANSPD:
+                # Slave reports inlet fan speed
+                statuspart[v.DATA_SPLY_FAN_SPD] = self._get_u16(msb, lsb)
+            elif msgid == v.MSG_VHROVRD:
+                # Slave reports remote override config
+                statuspart[v.DATA_REMOTE_TRANSFER_VH] = self._get_flag8(msb)[0]
+                statuspart[v.DATA_REMOTE_RW_VH] = self._get_flag8(lsb)[0]
+            elif msgid == v.MSG_NRELVENT:
+                statuspart[v.DATA_REL_VENT_LEVEL] = self._get_u8(msb)
             elif msgid == v.MSG_ROVRD:
                 # OTGW (or downstream device) reports remote override
                 # behaviour

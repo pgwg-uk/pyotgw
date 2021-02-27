@@ -285,6 +285,35 @@ DATA_EXHAUST_RH = "exhaust_rh"
 # MSG_CO2EXHAUST
 DATA_EXHAUST_CO2 = "exhaust_co2"
 
+# MSG_TSPLYIN
+DATA_SPLY_IN_TEMP = "supply_inlet_temp"
+
+# MSG_TSPLYOUT
+DATA_SPLY_OUT_TEMP = "supply_outlet_temp"
+
+# MSG_TEXHIN
+DATA_EXHAUST_IN_TEMP = "exhaust_inlet_temp"
+
+# MSG_TEXHOUT
+DATA_EXHAUST_OUT_TEMP = "exhaust_outlet_temp"
+
+# MSG_EXFANSPD
+DATA_EXHAUST_FAN_SPD = "exhaust_fan_speed"
+
+# MSG_SPLYFANSPD
+DATA_SPLY_FAN_SPD = "supply_fan_speed"
+
+# MSG_VHROVRD
+DATA_REMOTE_TRANSFER_VH = "remote_transfer_vh"
+DATA_REMOTE_RW_VH = "remote_rw_vh"
+
+# MSG_NRELVENT
+DATA_REL_VENT_LEVEL = "relative_vent_level"
+
+# MSG_VHNUMTSPS
+
+# MSG_VHTSPIDX
+
 # MSG_ROVRD
 DATA_ROVRD_MAN_PRIO = "rovrd_man_prio"
 DATA_ROVRD_AUTO_PRIO = "rovrd_auto_prio"
